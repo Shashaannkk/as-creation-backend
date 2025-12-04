@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AS Creation | Photography & Videography</title>
+    
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* CRITICAL FIX: Prevent Horizontal Scroll */
+        html, body { overflow-x: hidden; width: 100%; position: relative; margin: 0; padding: 0; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #171717; }
+        ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #9333ea; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-neutral-900 text-white font-sans selection:bg-purple-500 selection:text-white">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-6 border-b border-transparent">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2 cursor-pointer select-none" onclick="scrollToSection('home')">
+                <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-900/20">
+                    <i data-lucide="camera" class="text-white w-6 h-6"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight">AS <span class="text-purple-400">Creation</span></span>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <button onclick="scrollToSection('home')" class="hover:text-purple-400 transition-colors text-sm font-medium tracking-wide uppercase">Home</button>
+                <button onclick="scrollToSection('portfolio')" class="hover:text-purple-400 transition-colors text-sm font-medium tracking-wide uppercase">Portfolio</button>
+                <button onclick="scrollToSection('services')" class="hover:text-purple-400 transition-colors text-sm font-medium tracking-wide uppercase">Services</button>
+                <button onclick="scrollToSection('contact')" class="hover:text-purple-400 transition-colors text-sm font-medium tracking-wide uppercase">Contact</button>
+                <button onclick="scrollToSection('booking')" class="bg-white text-black px-6 py-2.5 rounded-full font-bold text-sm hover:bg-purple-400 hover:text-white transition-all transform hover:scale-105 shadow-lg shadow-white/10">BOOK NOW</button>
+            </div>
+            <button class="md:hidden text-white" onclick="toggleMenu()">
+                <i data-lucide="menu" id="menu-icon" class="w-8 h-8"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-neutral-900 border-b border-neutral-800 p-6 flex flex-col gap-4 shadow-2xl z-40">
+            <button onclick="scrollToSection('home')" class="text-left py-3 border-b border-neutral-800 hover:text-purple-400">Home</button>
+            <button onclick="scrollToSection('portfolio')" class="text-left py-3 border-b border-neutral-800 hover:text-purple-400">Portfolio</button>
+            <button onclick="scrollToSection('services')" class="text-left py-3 border-b border-neutral-800 hover:text-purple-400">Services</button>
+            <button onclick="scrollToSection('booking')" class="bg-purple-600 text-center py-3 rounded-lg font-bold mt-2">Book Appointment</button>
+        </div>
+    </nav>
+
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Camera Background" class="w-full h-full object-cover opacity-30 animate-fade-in">
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/80 to-transparent"></div>
+        </div>
+        <div class="container mx-auto px-6 relative z-10 text-center mt-20">
+            <div class="inline-block mb-6 px-4 py-1.5 border border-purple-500/30 rounded-full bg-purple-500/10 backdrop-blur-sm animate-fade-in" style="animation-delay: 0.1s;">
+                <span class="text-purple-300 text-xs font-bold tracking-widest uppercase">Photography & Videography</span>
+            </div>
+            <h1 class="text-4xl md:text-7xl font-extrabold mb-8 leading-tight animate-fade-in break-words" style="animation-delay: 0.2s;">
+                Capturing Moments, <br />
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500">Creating Stories.</span>
+            </h1>
+            <p class="text-gray-300 text-base md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in px-4" style="animation-delay: 0.3s;">
+                Welcome to <span class="text-white font-bold">AS Creation</span>. Specializing in events, cinematic reels, religious ceremonies, and creative marketing content.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center animate-fade-in px-6 md:px-0" style="animation-delay: 0.4s;">
+                <button onclick="scrollToSection('booking')" class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2 group shadow-lg shadow-purple-900/40 w-full md:w-auto">
+                    Start a Project <i data-lucide="chevron-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                </button>
+                <button onclick="scrollToSection('portfolio')" class="bg-transparent border border-white/20 hover:bg-white/10 text-white px-8 py-4 rounded-full font-bold text-lg transition-all w-full md:w-auto">
+                    View Gallery
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="border-y border-white/5 bg-white/5 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-8 flex flex-wrap justify-center md:justify-between gap-8 md:gap-8">
+            <div class="text-center w-5/12 md:w-auto min-w-[100px]"><div class="text-3xl font-bold text-white mb-1">150+</div><div class="text-[10px] md:text-xs text-gray-400 uppercase tracking-widest">Happy Clients</div></div>
+            <div class="text-center w-5/12 md:w-auto min-w-[100px]"><div class="text-3xl font-bold text-white mb-1">80+</div><div class="text-[10px] md:text-xs text-gray-400 uppercase tracking-widest">Events Covered</div></div>
+            <div class="text-center w-5/12 md:w-auto min-w-[100px]"><div class="text-3xl font-bold text-white mb-1">500+</div><div class="text-[10px] md:text-xs text-gray-400 uppercase tracking-widest">Reels Created</div></div>
+            <div class="text-center w-5/12 md:w-auto min-w-[100px]"><div class="text-3xl font-bold text-white mb-1">4+</div><div class="text-[10px] md:text-xs text-gray-400 uppercase tracking-widest">Years Experience</div></div>
+        </div>
+    </div>
+
+    <section id="services" class="py-20 md:py-24 bg-neutral-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+                <div class="h-1 w-20 bg-purple-600 mx-auto rounded-full"></div>
+                <p class="text-gray-400 mt-4 max-w-xl mx-auto">We provide a full range of production services tailored to your needs.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-neutral-800/50 p-6 md:p-8 rounded-2xl border border-neutral-800 hover:border-purple-500/50 hover:bg-neutral-800 transition-all group h-full">
+                    <div class="mb-6 bg-neutral-900 w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-neutral-800 shadow-inner shadow-white/5"><i data-lucide="image" class="w-8 h-8 text-purple-400"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Event Shoots</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed text-sm">Weddings, parties, and corporate events captured with cinematic flair.</p>
+                </div>
+                <div class="bg-neutral-800/50 p-6 md:p-8 rounded-2xl border border-neutral-800 hover:border-purple-500/50 hover:bg-neutral-800 transition-all group h-full">
+                    <div class="mb-6 bg-neutral-900 w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-neutral-800 shadow-inner shadow-white/5"><i data-lucide="flame" class="w-8 h-8 text-orange-400"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Festive & Religious</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed text-sm">Capturing the devotion, colors, and traditions of your special poojas.</p>
+                </div>
+                <div class="bg-neutral-800/50 p-6 md:p-8 rounded-2xl border border-neutral-800 hover:border-purple-500/50 hover:bg-neutral-800 transition-all group h-full">
+                    <div class="mb-6 bg-neutral-900 w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-neutral-800 shadow-inner shadow-white/5"><i data-lucide="video" class="w-8 h-8 text-blue-400"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Reels & Social</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed text-sm">High-energy short-form content designed to go viral.</p>
+                </div>
+                <div class="bg-neutral-800/50 p-6 md:p-8 rounded-2xl border border-neutral-800 hover:border-purple-500/50 hover:bg-neutral-800 transition-all group h-full">
+                    <div class="mb-6 bg-neutral-900 w-16 h-16 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-neutral-800 shadow-inner shadow-white/5"><i data-lucide="star" class="w-8 h-8 text-yellow-400"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Marketing Stuff</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed text-sm">Professional product shoots and brand storytelling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-20 md:py-24 bg-neutral-950">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6 w-full">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2">Featured Work</h2>
+                    <p class="text-gray-400">Explore our latest projects, from festive celebrations to viral reels.</p>
+                </div>
+                <div class="w-full md:w-auto overflow-hidden">
+                    <div class="flex gap-2 overflow-x-auto pb-2 md:pb-0 w-full scrollbar-hide">
+                        <button class="filter-btn active px-6 py-2 rounded-full text-sm font-medium capitalize transition-all whitespace-nowrap bg-white text-black flex-shrink-0" data-filter="all" onclick="filterPortfolio('all')">All</button>
+                        <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium capitalize transition-all whitespace-nowrap bg-neutral-800 text-gray-300 hover:bg-neutral-700 flex-shrink-0" data-filter="festival" onclick="filterPortfolio('religious')">Festival</button>
+                        <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium capitalize transition-all whitespace-nowrap bg-neutral-800 text-gray-300 hover:bg-neutral-700 flex-shrink-0" data-filter="reels" onclick="filterPortfolio('reels')">Reels</button>
+                        <button class="filter-btn px-6 py-2 rounded-full text-sm font-medium capitalize transition-all whitespace-nowrap bg-neutral-800 text-gray-300 hover:bg-neutral-700 flex-shrink-0" data-filter="marketing" onclick="filterPortfolio('marketing')">Marketing</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolio-grid">
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-[4/5] cursor-pointer" data-category="reels">
+                    <video src="Assets/50daysStory.mp4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" autoplay muted loop playsinline></video>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-purple-400 text-xs font-bold uppercase tracking-wider mb-1">Social Media</span>
+                        <h3 class="text-xl font-bold text-white">Instagram Reel</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-[4/5] cursor-pointer" data-category="reels">
+                    <img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=800&q=80" alt="Reel" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-purple-400 text-xs font-bold uppercase tracking-wider mb-1">Social Media</span>
+                        <h3 class="text-xl font-bold text-white">Fashion Reel</h3>
+                    </div>
+                </div>
+
+                <div class="portfolio-item group relative overflow-hidden rounded-xl aspect-[4/5] cursor-pointer" data-category="marketing">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" alt="Product" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-purple-400 text-xs font-bold uppercase tracking-wider mb-1">Commercial</span>
+                        <h3 class="text-xl font-bold text-white">Product Launch</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://www.instagram.com/akshats_creation/" target="_blank" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors font-medium">
+                    View more on Instagram <i data-lucide="instagram" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="py-20 md:py-24 bg-gradient-to-b from-neutral-900 to-neutral-950">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="bg-neutral-800 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row border border-neutral-700">
+                <div class="md:w-5/12 bg-purple-900/20 p-8 md:p-14 flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-600/20 to-blue-600/20 z-0"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4">Book An Appointment</h3>
+                        <p class="text-purple-200 mb-8 text-sm md:text-base">Ready to create something amazing? Secure your date with a small token amount of <strong>₹100</strong>.</p>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="mail" class="w-5 h-5 text-purple-400 mt-1 flex-shrink-0"></i>
+                                <div class="break-all">
+                                    <p class="font-medium text-white">Email Us</p>
+                                    <p class="text-sm text-gray-400">as.creations.studiio@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="instagram" class="w-5 h-5 text-purple-400 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <p class="font-medium text-white">DM Us</p>
+                                    <p class="text-sm text-gray-400">@akshats_creation</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <i data-lucide="calendar" class="w-5 h-5 text-purple-400 mt-1 flex-shrink-0"></i>
+                                <div>
+                                    <p class="font-medium text-white">Working Hours</p>
+                                    <p class="text-sm text-gray-400">Mon - Sat: 10:00 AM - 8:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-7/12 p-6 md:p-14 bg-neutral-800" id="form-container">
+                    
+                    <form id="details-form" class="space-y-5">
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Your Name</label>
+                                <input required type="text" id="name" class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Phone Number</label>
+                                <input required type="tel" id="phone" class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors" placeholder="+91 98765 43210">
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Date</label>
+                                <input required type="date" id="date" class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Service Type</label>
+                                <select id="service" class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors">
+                                    <option>Event Shoot</option>
+                                    <option>Festive & Religious</option>
+                                    <option>Reels / Social Media</option>
+                                    <option>Product / Marketing</option>
+                                    <option>Pre Wedding / Invitation</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Tell us about your vision</label>
+                            <textarea required id="vision" rows="4" class="w-full bg-neutral-900 border border-neutral-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-purple-500 transition-colors" placeholder="Describe the event, style, or specific requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-bold py-4 rounded-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2">
+                            Proceed to Pay Token (₹100) <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+
+                    <div id="payment-form" class="hidden animate-fade-in space-y-6">
+                        <button type="button" onclick="showDetailsStep()" class="text-gray-400 hover:text-white text-sm flex items-center gap-1 mb-4">
+                            ← Back to details
+                        </button>
+                    
+                        <div class="bg-purple-900/20 border border-purple-500/30 rounded-xl p-6 text-center">
+                            <h3 class="text-xl font-bold mb-2">Advance Token Payment</h3>
+                            <p class="text-gray-300 text-sm mb-6">Complete the payment securely via Razorpay</p>
+                    
+                            <div class="text-4xl font-bold text-white mb-2">₹100.00</div>
+                            <div class="text-xs text-gray-400 uppercase tracking-widest mb-8">AS Creation Booking Token</div>
+                            
+                            <button id="rzp-button" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold py-4 rounded-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 shadow-lg shadow-purple-900/50">
+                                Pay Now with Razorpay <i data-lucide="credit-card" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="success-message" class="hidden h-full flex flex-col items-center justify-center text-center py-10 animate-fade-in">
+                        <div class="w-16 h-16 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mb-6">
+                            <i data-lucide="check-circle" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Booking Confirmed!</h3>
+                        <p class="text-gray-400">We have received your details and the token payment of ₹100. We will contact you shortly.</p>
+                        <button onclick="resetForm()" class="mt-8 text-purple-400 hover:text-white text-sm font-medium underline">Book another slot</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-neutral-950 border-t border-neutral-800 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="flex items-center gap-2 mb-6 md:mb-0">
+                    <div class="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+                        <i data-lucide="camera" class="text-white w-5 h-5"></i>
+                    </div>
+                    <span class="text-lg font-bold">AS Creation</span>
+                </div>
+                
+                <div class="flex gap-6">
+                    <a href="https://www.instagram.com/akshats_creation/" target="_blank" class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center hover:bg-purple-600 transition-colors text-white">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="mailto:as.creations.studiio@gmail.com" class="w-10 h-10 rounded-full bg-neutral-900 flex items-center justify-center hover:bg-blue-600 transition-colors text-white">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2024 AS Creation. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Designed for Creators.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 🔗 LOCALHOST for testing. Change to https://as-creation-backend.onrender.com when live.
+        const API_BASE = "https://as-creation-backend.onrender.com";
+
+        lucide.createIcons();
+
+        // Navbar Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-neutral-900/95', 'backdrop-blur-md', 'border-b', 'border-neutral-800', 'py-4');
+                nav.classList.remove('py-6');
+            } else {
+                nav.classList.remove('bg-neutral-900/95', 'backdrop-blur-md', 'border-b', 'border-neutral-800', 'py-4');
+                nav.classList.add('py-6');
+            }
+        });
+
+        // Mobile Menu
+        window.toggleMenu = function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Smooth Scroll
+        window.scrollToSection = function(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (mobileMenu) mobileMenu.classList.add('hidden');
+            }
+        }
+
+        // Portfolio Filter
+        window.filterPortfolio = function(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.dataset.filter === category) {
+                    btn.classList.add('bg-white', 'text-black');
+                    btn.classList.remove('bg-neutral-800', 'text-gray-300');
+                } else {
+                    btn.classList.remove('bg-white', 'text-black');
+                    btn.classList.add('bg-neutral-800', 'text-gray-300');
+                }
+            });
+
+            document.querySelectorAll('.portfolio-item').forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        // --- BOOKING & RAZORPAY LOGIC ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const detailsForm = document.getElementById('details-form');
+            const successMsg = document.getElementById('success-message');
+            const paymentForm = document.getElementById('payment-form');
+            let currentBookingId = null;
+
+            // 1. Details Form Submission
+            if (detailsForm) {
+                detailsForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const submitBtn = detailsForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    
+                    // Loading State
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Processing...`;
+                    lucide.createIcons();
+
+                    const bookingData = {
+                        name: document.getElementById('name').value.trim(),
+                        phone: document.getElementById('phone').value.trim(),
+                        date: document.getElementById('date').value,
+                        serviceType: document.getElementById('service').value,
+                        notes: document.getElementById('vision').value.trim(),
+                    };
+
+                    try {
+                        const res = await fetch(`${API_BASE}/api/bookings`, {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(bookingData),
+                        });
+                        const data = await res.json();
+                        
+                        if (!res.ok || !data.success) {
+                            alert(data.error || "Something went wrong.");
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = originalText;
+                            return;
+                        }
+
+                        currentBookingId = data.bookingId;
+                        detailsForm.classList.add('hidden');
+                        paymentForm.classList.remove('hidden');
+                        
+                        // Reset button for next time
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+
+                    } catch (err) {
+                        console.error("Error:", err);
+                        alert("Server error. Please try again.");
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalText;
+                    }
+                });
+            }
+
+            // 2. Navigation Helper
+            window.showDetailsStep = function() {
+                paymentForm.classList.add('hidden');
+                detailsForm.classList.remove('hidden');
+            }
+
+            // 3. Razorpay Payment Logic
+            const rzpBtn = document.getElementById('rzp-button');
+            if(rzpBtn) {
+                rzpBtn.onclick = async function (e) {
+                    const originalText = rzpBtn.innerHTML;
+
+                    // Loading State
+                    rzpBtn.disabled = true;
+                    rzpBtn.innerHTML = `<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Processing...`;
+                    lucide.createIcons();
+
+                    if (!currentBookingId) {
+                        alert("Booking ID missing. Please fill details again.");
+                        window.location.reload();
+                        return;
+                    }
+
+                    try {
+                        // A. Create Order
+                        const response = await fetch(`${API_BASE}/api/create-order`, { method: 'POST' });
+                        const order = await response.json();
+
+                        if (!order.id) {
+                            alert("Could not initiate payment. Server error.");
+                            rzpBtn.disabled = false;
+                            rzpBtn.innerHTML = originalText;
+                            return;
+                        }
+
+                        // B. Open Razorpay
+                        var options = {
+                            "key": "rzp_test_RnQldIaI6gOLET", // 🔴 PASTE KEY ID FROM DASHBOARD
+                            "amount": order.amount,
+                            "currency": "INR",
+                            "name": "AS Creation",
+                            "description": "Booking Token",
+                            "order_id": order.id, 
+                            "handler": async function (response) {
+                                rzpBtn.innerHTML = "Verifying...";
+                                
+                                // C. Verify Payment
+                                const verifyRes = await fetch(`${API_BASE}/api/verify-payment`, {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({
+                                        razorpay_payment_id: response.razorpay_payment_id,
+                                        razorpay_order_id: response.razorpay_order_id,
+                                        razorpay_signature: response.razorpay_signature,
+                                        bookingId: currentBookingId 
+                                    })
+                                });
+
+                                const verifyData = await verifyRes.json();
+
+                                if (verifyData.success) {
+                                    paymentForm.classList.add('hidden');
+                                    successMsg.classList.remove('hidden');
+                                } else {
+                                    alert("Payment Verification Failed!");
+                                    rzpBtn.disabled = false;
+                                    rzpBtn.innerHTML = originalText;
+                                }
+                            },
+                            "prefill": {
+                                "name": document.getElementById('name').value,
+                                "contact": document.getElementById('phone').value
+                            },
+                            "theme": { "color": "#9333ea" }
+                        };
+
+                        var rzp1 = new Razorpay(options);
+                        rzp1.on('payment.failed', function (response){
+                            alert("Payment Failed: " + response.error.description);
+                            rzpBtn.disabled = false;
+                            rzpBtn.innerHTML = originalText;
+                        });
+                        rzp1.open();
+
+                    } catch (err) {
+                        console.error(err);
+                        alert("Something went wrong. Is your backend running?");
+                        rzpBtn.disabled = false;
+                        rzpBtn.innerHTML = originalText;
+                    }
+                };
+            }
+
+            // 4. Reset Form
+            window.resetForm = function() {
+                successMsg.classList.add('hidden');
+                detailsForm.classList.remove('hidden');
+                detailsForm.reset();
+                currentBookingId = null;
+            }
+        });
+    </script>
+</body>
+</html>
